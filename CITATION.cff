@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software or the accompanying dissertation, please cite it as below."
+title: "Rocket-MO-Gym: A 6-DOF Multi-Objective Reinforcement Learning Environment for Autonomous Rocket Landing"
+authors:
+  - family-names: "James"
+    given-names: "Rohan"
+    affiliation: "University of Dublin, Trinity College"
+version: 1.0.0
+date-released: 2026-07-27
+url: "https://github.com/rohan-james/6dof-rocket-booster-lander-morl"
+license: GNU General Public License v3.0 (GPLv3)
+preferred-citation:
+  type: thesis
+  title: "On the Reconciliation of Conflicting Astrodynamic Landing Objectives via Learned Policies"
+  authors:
+    - family-names: "James"
+      given-names: "Rohan"
+  institution:
+    name: "University of Dublin, Trinity College"
+  year: 2026

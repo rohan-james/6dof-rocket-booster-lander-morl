@@ -151,6 +151,8 @@ activemq-data/
 .env
 .envrc
 .venv
+.condaenv
+condaenv/
 env/
 venv/
 ENV/
@@ -216,3 +218,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore all files inside the logs directory
+logs/
+
+# Ignore CSV files generated during trials
+*.csv
+
+# Ignore standard log files
+*.log
+
+weights/

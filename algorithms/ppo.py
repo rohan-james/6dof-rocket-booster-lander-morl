@@ -702,8 +702,7 @@ class ProximalPolicyOptimisation:
         logger.info("Training logs written and closed.")
 
 
-CURRICULUM_TRAIN = 3
-
+CURRICULUM_TRAIN = 0
 
 if __name__ == "__main__":
 

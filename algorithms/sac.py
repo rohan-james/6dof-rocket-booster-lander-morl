@@ -22,7 +22,7 @@ CHECKPOINT_PATH = BASE_DIR / "sac_ckpts"
 if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
-from envs.rocket_env_gaudet_copy import RocketLanding6DOFEnv
+from environments.sorl_lander import RocketLanding6DOFEnv
 
 STEPS_PER_LEVEL = {0: 500_000, 1: 750_000, 2: 1_000_000, 3: 2_000_000}
 
@@ -30,7 +30,7 @@ os.makedirs(CHECKPOINT_PATH, exist_ok=True)
 
 
 # EDIT BELOW CURRICULUM LEVEL
-LEVEL = 3
+LEVEL = 0
 if LEVEL - 1 > 0:
     RESUME_FROM = CHECKPOINT_PATH / f"/best_level{LEVEL-1}/best_model"
 else:

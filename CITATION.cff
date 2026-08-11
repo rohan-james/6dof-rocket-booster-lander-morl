@@ -5,10 +5,10 @@ authors:
   - family-names: "James"
     given-names: "Rohan"
     affiliation: "University of Dublin, Trinity College"
-version: 1.0.0
-date-released: 2026-07-27
+version: "0.9.1-beta"
+date-released: 2026-08-11
 url: "https://github.com/rohan-james/6dof-rocket-booster-lander-morl"
-license: GNU General Public License v3.0 (GPLv3)
+license: "GPL-3.0-only"
 preferred-citation:
   type: thesis
   title: "On the Reconciliation of Conflicting Astrodynamic Landing Objectives via Learned Policies"

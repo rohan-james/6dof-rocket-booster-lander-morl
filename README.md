@@ -2,6 +2,7 @@
 
 ![Licence](https://img.shields.io/badge/license-GPLv3-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21894815.svg)](https://doi.org/10.5281/zenodo.21894815)
 
 ### A 6-DOF PyBullet environment for rocket booster landing, with PPO/SAC baselines and a CAPQL-based multi-objective RL agent that recovers a Pareto front of precision-vs-fuel trade-off policies.
 
@@ -188,12 +189,15 @@ If you use this software or the accompanying dissertation, please cite it. Full 
 
 ```bibtex
 @software{james_morl_6dof_lander_2026,
-  author  = {James, Rohan},
-  title   = {{Rocket-MO-Gym: A 6-DOF Multi-Objective Reinforcement Learning Environment for Autonomous Rocket Landing}},
-  version = {1.0.0},
-  year    = {2026},
-  url     = {https://github.com/rohan-james/6dof-rocket-booster-lander-morl},
-  licence = {GPL-3.0}
+  author       = {James, Rohan},
+  title        = {{Rocket-MO-Gym: A 6-DOF Multi-Objective Reinforcement Learning Environment for Autonomous Rocket Landing}},
+  month        = {aug},
+  year         = {2026},
+  licence      = {GPL-3.0},
+  publisher    = {Zenodo},
+  version      = {v0.9.1-beta},
+  doi          = {10.5281/zenodo.21894815},
+  url          = {https://doi.org/10.5281/zenodo.21894815}
 }
 
 @mastersthesis{james_morl_astrodynamics_2026,

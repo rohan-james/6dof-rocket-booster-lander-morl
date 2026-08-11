@@ -84,18 +84,24 @@ class RocketLanding6DOFEnv(gym.Env):
         if self.render_mode == "human":
             self.physicsClient = p.connect(p.GUI)
             p.resetDebugVisualizerCamera(
-                cameraDistance=10,
+                cameraDistance=2,
                 cameraYaw=50,
-                cameraPitch=-20,
-                cameraTargetPosition=[0, 0, 3],
+                cameraPitch=0,
+                cameraTargetPosition=[5, -5, 3],
             )
+            p.configureDebugVisualizer(p.COV_ENABLE_GUI, 0)
+            p.configureDebugVisualizer(p.COV_ENABLE_SHADOWS, 1)
         else:
             self.physicsClient = p.connect(p.DIRECT)
 
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -self.GRAVITY)
         self.planeId = p.loadURDF("plane.urdf")
-        self.rocketId = p.loadURDF(self.urdf_path, useFixedBase=False)
+        self.rocketId = p.loadURDF(
+            self.urdf_path,
+            useFixedBase=False,
+            flags=p.URDF_USE_MATERIAL_COLORS_FROM_MTL,
+        )
 
         for i in range(p.getNumJoints(self.rocketId)):
             if p.getJointInfo(self.rocketId, i)[1].decode() == "thrust_joint":

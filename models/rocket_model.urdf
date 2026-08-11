@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <robot name="rocket">
+
   <material name="blue">
     <color rgba="0.175 0.277 0.906 1"/>
   </material>
@@ -8,9 +9,7 @@
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="20"/>
-      <inertia ixx="16.25" ixy="0" ixz="0"
-               iyy="16.25" iyz="0"
-               izz="2.5"/>
+      <inertia ixx="16.25" ixy="0" ixz="0" iyy="16.25" iyz="0" izz="2.5"/>
     </inertial>
 
     <collision>
@@ -20,17 +19,78 @@
       </geometry>
     </collision>
 
-    <!-- Main Body -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <cylinder radius="0.5" length="3.0"/>
       </geometry>
-      <material name="blue"/>
+      <material name="invisible">
+        <color rgba="0 0 0 0"/>
+      </material>
     </visual>
-
   </link>
 
+  <!-- Main Body -->
+  <link name="main_body_visual">
+    <inertial>
+      <mass value="0.0001"/>
+      <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="rocket_main_body.obj" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="main_body_visual_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="main_body_visual"/>
+  </joint>
+
+  <!-- Fins -->
+  <link name="fins_visual">
+    <inertial>
+      <mass value="0.0001"/>
+      <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="rocket_fins.obj" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="fins_visual_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="fins_visual"/>
+  </joint>
+
+  <!-- Nozzle -->
+  <link name="nozzle_visual">
+    <inertial>
+      <mass value="0.0001"/>
+      <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="rocket_nozzle.obj" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="nozzle_visual_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="nozzle_visual"/>
+  </joint>
+
+  <!-- Thrust Link -->
   <link name="thrust_link">
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -38,6 +98,7 @@
       <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
     </inertial>
   </link>
+
   <joint name="thrust_joint" type="fixed">
     <origin xyz="0.0 0.0 -1.5" rpy="0.0 0.0 0.0"/>
     <parent link="base_link"/>
@@ -46,12 +107,14 @@
     <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
   </joint>
 
+  <!-- IMU Link -->
   <link name="imu_link">
     <inertial>
       <mass value="0.0001"/>
       <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
     </inertial>
   </link>
+
   <joint name="imu_joint" type="fixed">
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
     <parent link="base_link"/>
